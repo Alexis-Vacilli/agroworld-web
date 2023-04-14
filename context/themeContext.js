@@ -1,24 +1,33 @@
-import React, { createContext, useState, useEffect } from 'react'
-import '../styles/Home.module.css'
+import React, { createContext } from "react";
 
-export const ThemeContext = createContext()
+export const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light')
+class ThemeContextProvider extends React.Component {
+  state = {
+    isLightTheme: false,
+    light: {
+      background: "bg-white",
+      text: "text-gray-700",
+      bulb: "text-gray-700"
+    },
+    dark: {
+      background: "bg-gray-900",
+      text: "text-white",
+      bulb: "text-yellow-400"
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    },
+  };
+
+  toggleTheme = () => {
+    this.setState({isLightTheme: !this.state.isLightTheme})
   }
-
-  useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove(theme === 'dark' ? 'theme-light' : 'theme-dark')
-    root.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light')
-  }, [theme])
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+  render() {
+    return (
+      <ThemeContext.Provider value={{ ...this.state, toggleTheme: this.toggleTheme }}>
+        {this.props.children}
+      </ThemeContext.Provider>
+    );
+  }
 }
+
+export default ThemeContextProvider;
