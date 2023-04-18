@@ -7,13 +7,14 @@ class ThemeContextProvider extends React.Component {
     isLightTheme: false,
     light: {
       background: "bg-white",
-      text: "text-gray-700",
-      bulb: "text-gray-700"
+      text: "text-[#06150a]",
+      bulb: "text-gray-700",
     },
     dark: {
       background: "bg-gray-900",
       text: "text-white",
       bulb: "text-yellow-400"
+
 
     },
   };

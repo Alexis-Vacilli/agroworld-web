@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import Image from "next/image";
 import { FaLightbulb } from "react-icons/fa";
 import { CiDark } from "react-icons/ci";
-import { MdArrowDropDown } from "react-icons/md";
+import {SiThymeleaf} from "react-icons/si"
+import { RiArrowDropDownLine } from "react-icons/ri";
 import DropDown from "./DropDown";
 import { ThemeContext } from "../context/themeContext";
 
@@ -30,15 +31,11 @@ const Navbar = () => {
 
   console.log(theme.background);
   return (
-    <nav className={`w-full fixed top-0 shadow-xs ${theme.background}`}>
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-        <a href="#" className="flex relative h-16 w-40">
-          <Image
-            src="/assets/logo.png"
-            alt="logo"
-            fill
-            objectFit="cover"
-          />
+    <nav className={`w-full fixed z-10 top-0 ${theme.background}`}>
+      <div className="w-full flex flex-wrap items-center justify-between mx-auto px-4 py-8">
+        <a href="#" className="flex items-center font-bold">
+          <SiThymeleaf className="text-[#008932] text-4xl mr-1"/>
+          <div className="text-2xl font-serif text-[#06150a]">AW</div>
         </a>
         <button
           type="button"
@@ -59,11 +56,11 @@ const Navbar = () => {
           className={`${menu ? "w-full md:block md:w-auto" : "hidden"}`}
           id="navbar-multi-level"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-5 md:border-0  sm:flex-col">
+          <ul className="flex flex-col font-bold p-4 md:p-0 border md:flex-row md:space-x-16 md:border-0 md:mt-2 sm:flex-col text-[#06150a]">
             <li>
               <a
                 href="#"
-                className="block py-2 pl-3 pr-4 text-white bg-[#8AC33E] rounded md:bg-transparent md:text-[#8AC33E] md:p-0"
+                className="block py-2 pl-3 pr-4 text-white bg-[#008932] rounded md:bg-transparent md:text-[#008932] md:p-0"
                 aria-current="page"
               >
                 Home
@@ -72,7 +69,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#8AC33E] md:p-0 ${theme.text}`}
+                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#008932] md:p-0 ${theme.text}`}
               >
                 About
               </a>
@@ -81,17 +78,17 @@ const Navbar = () => {
               <button
                 id="dropdownNavbarLink"
                 onClick={toggleDropdown}
-                className={`flex items-center justify-between w-full py-2 pl-3 pr-4 font-normal border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#8AC33E] md:p-0 md:w-auto ${theme.text}`}
+                className={`flex items-center justify-between w-full py-2 pl-3 pr-4 font-normal border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#008932] md:p-0 md:w-auto ${theme.text}`}
               >
                 Services{" "}
-                  <MdArrowDropDown className={`w-5 h-5 ml-1 ${theme.text}`} />
+                  <RiArrowDropDownLine className={` text-1xl ${theme.text}`} />
               </button>
               {dropdown ? <DropDown /> : <></>}
             </li>
             <li>
               <a
                 href="#"
-                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#8AC33E] md:p-0 ${theme.text}`}
+                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#008932] md:p-0 ${theme.text}`}
               >
                 Store
               </a>
@@ -99,16 +96,16 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#8AC33E] md:p-0 ${theme.text}`}
+                className={`block py-2 pl-3 pr-4 font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#008932] md:p-0 ${theme.text}`}
               >
                 Contact
               </a>
             </li>
-            <li className="flex items-center cursor-pointer">
-              <FaLightbulb onClick={changeTheme} className={`h-4 ${theme.bulb}`} />
-            </li>
           </ul>
         </div>
+        <button className="py-3 px-8 mr-2 mb-2 text-sm font-medium text-[#008932] focus:outline-none bg-white  border border-[#008932] hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200" onClick={changeTheme}>
+          Contact Us
+        </button>
       </div>
     </nav>
   );
