@@ -34,7 +34,7 @@ const Services = () => {
           <div className="w-1/3 relative h-28">
             <Image src="/assets/service-07-1.png" alt="service-photo" fill />
           </div>
-          <div class="w-1/2">
+          <div className="w-1/2">
             <p
               className="text-2xl font-normal">
               Innovation And Expertice

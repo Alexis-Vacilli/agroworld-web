@@ -1,25 +1,27 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 
 const ThemeSwitcher = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState("bg-white");
 
   const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
+    setIsDarkMode("bg-gray-900");
     // add code to update the theme of the page here
   };
+
+  const toggleLightMode = () => {
+    setIsDarkMode("bg-white");
+  }
+
   return (
-    <button
-      className="bg-gray-300 dark:bg-gray-900 w-10 h-20 rounded-full p-1 flex flex-col items-center justify-center transition-colors duration-300 focus:outline-none transform rotate-180"
-      onClick={toggleDarkMode}
-    >
-      <span className="sr-only">Toggle Theme</span>
-      {isDarkMode ? (
-        <FiSun className="h-6 w-6 text-gray-400 transition-colors duration-300 transform rotate-180" />
-      ) : (
-        <FiMoon className="h-6 w-6 text-white transition-colors duration-300 transform rotate-180" />
-      )}
-    </button>
+    <div className={`flex flex-col space-y-8 shadow-sm ${isDarkMode}  p-3 border-2 border-gray-100 rounded-full fixed top-[50%] translate-y-[-50%] right-7 cursor-pointer`}>
+      <div onClick={toggleLightMode}>
+        <FiSun className="text-gray-900" />
+      </div>
+      <div onClick={toggleDarkMode}>
+        <FiMoon className="text-gray-900" />
+      </div>
+    </div>
   );
 };
 

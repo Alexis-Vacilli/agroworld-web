@@ -103,7 +103,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <button className="py-3 px-8 mr-2 mb-2 text-sm font-medium text-[#008932] focus:outline-none bg-white  border border-[#008932] hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200" onClick={changeTheme}>
+        <button className="py-3 px-8 mr-2 mb-2 text-sm rounded-md font-medium text-[#008932] focus:outline-none bg-white  border border-[#008932] hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200" onClick={changeTheme}>
           Contact Us
         </button>
       </div>

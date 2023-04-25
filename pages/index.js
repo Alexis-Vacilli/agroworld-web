@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import Services from '../components/Services';
+import Testimonials from '../components/Testimonials'
+import Contact from '../components/Contact';
 
 export default function Home() {
   return (
@@ -24,6 +26,12 @@ export default function Home() {
         </section>
         <section className="py-36">
           <Services />
+        </section>
+        <section className=" py-22">
+          <Testimonials />
+        </section>
+        <section className=" py-22">
+          <Contact />
         </section>
       </main>
 
